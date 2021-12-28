@@ -1,0 +1,20 @@
+The 2015 election is a different PARTITION to the 2017 election. We only care about the order of votes for each year.
+
+
+Question
+--------
+Use PARTITION to show the ranking of each party in S14000021 in each year. Include yr, party, votes and ranking (the party with the most votes is 1).
+
+
+Query
+------
+
+SELECT yr,
+       party,
+       votes,
+       RANK() OVER (PARTITION BY yr
+                    ORDER BY votes DESC) AS posn
+FROM ge
+WHERE constituency = 'S14000021'
+ORDER BY party,
+         yr;
