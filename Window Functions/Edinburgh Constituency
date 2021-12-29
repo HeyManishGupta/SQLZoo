@@ -1,0 +1,24 @@
+Edinburgh constituencies are numbered S14000021 to S14000026.
+
+Question
+--------
+
+Use PARTITION BY constituency to show the ranking of each party in Edinburgh in 2017. 
+Order your results so the winners are shown first, then ordered by constituency.
+
+
+------
+Query
+------
+
+SELECT constituency,
+       party,
+       votes,
+       rank() over (partition BY constituency
+                    ORDER BY votes DESC) AS posn
+FROM ge
+WHERE constituency BETWEEN 'S14000021' AND 'S14000026'
+  AND yr = 2017
+ORDER BY posn,
+         constituency
+
