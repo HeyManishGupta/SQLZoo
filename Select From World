@@ -59,6 +59,15 @@ United Kingdom has a small population and a small area, it should be excluded.
 
 Query
 -----
+select name, population, area from world where (area > 3000000) <> (population > 250000000);
+
+
+9 - Show the name and population in millions and the GDP in billions for the countries of the continent 'South America'. Use the ROUND function to show the values to two decimal places.
+
+For South America show population in millions and GDP in billions both to 2 decimal places.
+
+Query
+-----
 
 
 
